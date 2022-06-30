@@ -10,15 +10,15 @@ import {
 } from "./Loader.styled";
 
 const Loader = forwardRef((prop, ref) => {
-  const { loaderText, imageList } = ref.current;
+  const { loaderTextRef, imageListRef, loaderContainerRef } = ref.current;
 
   return (
-    <LoaderContainer>
+    <LoaderContainer ref={loaderContainerRef}>
       <LoaderTextContainer>
-        <LoaderText ref={loaderText}>Art connects us</LoaderText>
+        <LoaderText ref={loaderTextRef}>Art connects us</LoaderText>
       </LoaderTextContainer>
 
-      <ImageGroup ref={imageList}>
+      <ImageGroup ref={imageListRef}>
         <Image src={"/images/smile1.jpg"} alt="" />
         <Image src={"/images/sneaker1.jpg"} alt="" />
         <Image src={"/images/trouser2-zoom.jpg"} alt="" />

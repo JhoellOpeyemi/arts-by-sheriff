@@ -1,42 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-    /* fonts */
-    @font-face {
-    font-family: "Forum";
-    src: url("forum-regular-webfont.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    }
-
-    @font-face {
-    font-family: "Inter Bold";
-    src: url("inter-bold-webfont.woff") format("woff");
-    font-weight: 700;
-    font-style: normal;
-    }
-
-    @font-face {
-    font-family: "Inter Medium";
-    src: url("inter-medium-webfont.woff") format("woff");
-    font-weight: 500;
-    font-style: normal;
-    }
-
-    @font-face {
-    font-family: "Inter Regular";
-    src: url("inter-regular-webfont.woff") format("woff");
-    font-weight: 400;
-    font-style: normal;
-    }
-
-    @font-face {
-    font-family: "Inter SemiBold";
-    src: url("inter-semibold-webfont.woff") format("woff");
-    font-weight: 600;
-    font-style: normal;
-    }
-
+    
     *,*::before,*::after {
             margin: 0;
             padding: 0;
@@ -47,9 +12,12 @@ const GlobalStyles = createGlobalStyle`
         scroll-behavior: smooth;
     }
 
-    
+    body {
+        font-family: Inter Regular;
+    }
+
     h1,h2,h3,h4,h5 {
-        line-height: 1.2;
+        line-height: 1.1;
     }
 
     p {
@@ -77,6 +45,14 @@ const GlobalStyles = createGlobalStyle`
 
     span {
         display: inline-block;
+    }
+
+    .word-container {
+        overflow: hidden;
+
+        .name {
+            transform-style: preserve-3d;
+        }
     }
 `;
 

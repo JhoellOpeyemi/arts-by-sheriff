@@ -7,6 +7,7 @@ export const LoaderContainer = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  pointer-events: none;
 `;
 
 export const LoaderTextContainer = styled.div`
@@ -14,7 +15,7 @@ export const LoaderTextContainer = styled.div`
 `;
 
 export const LoaderText = styled.p`
-  font-family: Forum;
+  font-family: "Forum";
   font-size: ${({ theme }) => theme.fontSize.loaderTextMobile};
   pointer-events: none;
   color: black;
