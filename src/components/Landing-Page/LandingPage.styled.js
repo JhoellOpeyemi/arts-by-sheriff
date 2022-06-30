@@ -14,42 +14,58 @@ export const LandingPageContainer = styled.div`
 export const LandingContent = styled.div`
   position: absolute;
   top: 0;
-  height: 50vh;
+  min-height: 50vh;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
   text-align: center;
-  padding: 0 0.9rem;
+  padding: 0 1rem;
 `;
 
 export const Name = styled.h1`
-  font-family: Inter SemiBold;
+  font-family: Forum;
   font-size: ${({ theme }) => theme.fontSize.largeTextMobile};
   text-transform: uppercase;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 
   .name {
-    transform: translateY(120%) rotateX(10deg) rotateZ(10deg);
+    transform: translateY(100%);
     opacity: 0;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
+    font-size: ${({ theme }) => theme.fontSize.largeTextDesktop};
   }
 `;
 
 export const Description = styled.p`
-  font-family: Forum;
+  font-family: Inter Regular;
   font-size: ${({ theme }) => theme.fontSize.mediumTextMobile};
-  color: ${({ theme }) => theme.colors.black4};
-  margin: 2rem 0 3rem;
+  color: ${({ theme }) => theme.colors.black8};
+  margin: 1.5rem;
   opacity: 0;
+  line-height: 1.3;
+
+  @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
+    font-size: ${({ theme }) => theme.fontSize.mediumTextDesktop};
+  }
 `;
 
 export const LandingImage = styled.div`
   position: absolute;
-  width: ${({ theme }) => theme.landingImageWidth};
-  height: ${({ theme }) => theme.landingImageHeight};
+  width: ${({ theme }) => theme.loaderImageWidth};
+  height: ${({ theme }) => theme.loaderImageHeight};
   opacity: 0;
+  max-width: ${({ loadingComplete }) =>
+    loadingComplete ? "74.75rem" : "34.375rem"};
   overflow: hidden;
   transform-origin: top;
+  z-index: -1;
+
+  @media screen and (min-width: ${({ theme }) => theme.break.tablet}) {
+    height: calc(${({ theme }) => theme.loaderImageHeight} * 1.25);
+  }
 `;
 
 export const Image = styled.img`
@@ -57,6 +73,6 @@ export const Image = styled.img`
   top: 0;
   width: 100%;
   height: 100%;
-  transform: translateY(-100%) scaleX(1.2);
   object-fit: cover;
+  object-position: top;
 `;

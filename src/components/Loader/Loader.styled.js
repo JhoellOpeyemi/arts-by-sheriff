@@ -28,19 +28,31 @@ export const ImageGroup = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: ${({ theme }) => theme.landingImageWidth};
-  height: ${({ theme }) => theme.landingImageHeight};
-  opacity: 0;
+  width: ${({ theme }) => theme.loaderImageWidth};
+  height: ${({ theme }) => theme.loaderImageHeight};
+  max-width: 34.375rem;
+  opacity: 1;
   overflow: hidden;
   transform-origin: top;
-  z-index: -1;
+
+  & > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.break.tablet}) {
+    height: calc(${({ theme }) => theme.loaderImageHeight} * 1.25);
+  }
 `;
 
 export const Image = styled.img`
   position: absolute;
-  top: 0;
+  left: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
-  transform: translateY(-100%) scaleX(1.2);
   object-fit: cover;
 `;
