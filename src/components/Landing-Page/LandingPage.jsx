@@ -1,4 +1,10 @@
-import { useLayoutEffect, useRef, useState, useContext } from "react";
+import {
+  useLayoutEffect,
+  useEffect,
+  useRef,
+  useState,
+  useContext,
+} from "react";
 import { gsap } from "gsap";
 
 import { RefContext } from "../../contexts/RefContexts";
@@ -17,12 +23,13 @@ import {
 
 const LandingPage = () => {
   const [loadingComplete, setLoadingComplete] = useState(false);
+
   const {
     loaderTextRef,
     loaderImageGroupRef,
     descriptionRef,
     heroImageRef,
-    navRef,
+    navWrapperRef,
   } = useContext(RefContext);
 
   const tl = useRef();
@@ -31,42 +38,58 @@ const LandingPage = () => {
     const imagesContainer = loaderImageGroupRef.current.firstElementChild;
 
     tl.current = gsap
-      .timeline({ delay: 0.8, stagger: 1, duration: 0.5 })
+      .timeline({ delay: 0.8, stagger: 1, duration: 0.5, ease: "power1.in" })
       .to(loaderTextRef.current, {
         y: 0,
         rotateX: "0",
         rotateZ: "0",
         opacity: 1,
       })
-      .to(loaderTextRef.current, { opacity: 0, delay: 1 })
-      .to(imagesContainer, {
-        height: 350,
-        duration: 1,
-        delay: 0.1,
-      })
-      .to(imagesContainer.children, {
-        height: 0,
-        scale: 1.15,
-        duration: 1,
-        stagger: {
-          each: 1.1,
-          from: "end",
+      .to(
+        loaderTextRef.current,
+        { yPercent: -150, rotateX: "10", rotateZ: "20", duration: 0.5 },
+        "+=1"
+      )
+      .to(
+        imagesContainer,
+        {
+          height: 400,
+          duration: 1,
         },
-        delay: 0.2,
-      })
-      .to(heroImageRef.current, {
-        opacity: 1,
-        duration: 0.1,
-        delay: -2,
-      })
-      .to(heroImageRef.current, {
-        bottom: 0,
-        width: "100%",
-        height: "50vh",
-        delay: 0.4,
-        onUpdate: setLoadingComplete,
-        onUpdateParams: [true],
-      })
+        "+=0.1"
+      )
+      .to(
+        imagesContainer.children,
+        {
+          height: 0,
+          scale: 1.15,
+          duration: 1,
+          stagger: {
+            each: 1.1,
+            from: "end",
+          },
+        },
+        "+=0.2"
+      )
+      .to(
+        heroImageRef.current,
+        {
+          opacity: 1,
+          duration: 0.1,
+        },
+        "-=2"
+      )
+      .to(
+        heroImageRef.current,
+        {
+          bottom: 0,
+          width: "100%",
+          height: "50vh",
+          onUpdate: setLoadingComplete,
+          onUpdateParams: [true],
+        },
+        "+=0.4"
+      )
       .to(".name", {
         y: 0,
         opacity: 1,
@@ -75,7 +98,7 @@ const LandingPage = () => {
       .to(descriptionRef.current, {
         opacity: 1,
       })
-      .to(navRef.current, {
+      .to(navWrapperRef.current, {
         opacity: 1,
       });
   }, [
@@ -83,8 +106,16 @@ const LandingPage = () => {
     loaderTextRef,
     heroImageRef,
     descriptionRef,
-    navRef,
+    navWrapperRef,
   ]);
+
+  useEffect(() => {
+    if (loadingComplete) {
+      document.querySelector("body").style.overflow = "auto";
+    } else {
+      document.querySelector("body").style.overflow = "hidden";
+    }
+  }, [loadingComplete]);
 
   return (
     <>

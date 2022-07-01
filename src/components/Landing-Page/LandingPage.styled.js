@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const LandingPageContainer = styled.div`
   position: absolute;
@@ -54,23 +54,32 @@ export const Description = styled.p`
 
 export const LandingImage = styled.div`
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: ${({ theme }) => theme.loaderImageWidth};
   height: ${({ theme }) => theme.loaderImageHeight};
   opacity: 0;
-  max-width: ${({ loadingComplete }) =>
-    loadingComplete ? "74.75rem" : "34.375rem"};
+  max-width: 34.375rem;
   overflow: hidden;
   transform-origin: top;
   z-index: -1;
 
-  @media screen and (min-width: ${({ theme }) => theme.break.tablet}) {
-    height: calc(${({ theme }) => theme.loaderImageHeight} * 1.25);
-  }
+  ${({ loadingComplete }) =>
+    loadingComplete &&
+    css`
+      top: auto;
+      left: auto;
+      bottom: 0;
+      transform: translate(0%);
+      max-width: 74.75rem;
+    `};
 `;
 
 export const Image = styled.img`
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;

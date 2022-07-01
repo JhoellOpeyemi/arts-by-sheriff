@@ -6,7 +6,7 @@ import { RefProvider } from "./contexts/RefContexts";
 import theme from "./lib/theme";
 
 // components import
-import { LandingPage, Nav } from "./components";
+import { LandingPage, Nav, About } from "./components";
 
 // styled components import
 import GlobalStyles from "./styles/Global.styled";
@@ -20,6 +20,7 @@ function App() {
         <Container>
           <Nav />
           <LandingPage />
+          <About />
         </Container>
       </RefProvider>
     </ThemeProvider>

@@ -24,7 +24,7 @@ const theme = {
     loaderTextDesktop: "4.25rem",
   },
   loaderImageWidth: "75%",
-  loaderImageHeight: "21.875rem",
+  loaderImageHeight: "25rem",
 };
 
 export default theme;

@@ -37,21 +37,17 @@ export const ImageGroup = styled.div`
 
   & > div {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: 0;
-  }
-
-  @media screen and (min-width: ${({ theme }) => theme.break.tablet}) {
-    height: calc(${({ theme }) => theme.loaderImageHeight} * 1.25);
   }
 `;
 
 export const Image = styled.img`
   position: absolute;
+  top: 0;
   left: 0;
-  bottom: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;

@@ -8,15 +8,21 @@ export const RefProvider = ({ children }) => {
   const loaderImageGroupRef = useRef(null);
   const loaderContainerRef = useRef(null);
 
+  // nav ref variables
+  const navWrapperRef = useRef(null);
+  const navRef = useRef(null);
+  const navLinksRef = useRef(null);
+
   // landing page ref variables
-  const navRef = useRef(null)
   const descriptionRef = useRef(null);
   const heroImageRef = useRef(null);
 
   return (
     <RefContext.Provider
       value={{
-      navRef,
+        navWrapperRef,
+        navRef,
+        navLinksRef,
         loaderTextRef,
         loaderImageGroupRef,
         loaderContainerRef,
