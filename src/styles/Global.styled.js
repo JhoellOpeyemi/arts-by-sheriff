@@ -10,11 +10,14 @@ const GlobalStyles = createGlobalStyle`
 
     html {
         scroll-behavior: smooth;
+        overflow-x: hidden;
     }
 
     body {
         font-family: Inter Regular;
         overflow-x: hidden;
+        background-color: ${({ theme }) => theme.colors.white};
+        font-size: 1rem;
     }
 
     h1,h2,h3,h4,h5 {
@@ -22,7 +25,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     p {
-        line-height: 1.6;
+        line-height: 1.3;
     }
 
     a {

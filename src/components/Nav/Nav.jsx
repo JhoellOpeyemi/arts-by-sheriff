@@ -23,18 +23,10 @@ const Nav = () => {
     setNav(!nav);
   };
 
-  console.log(nav);
-
   useEffect(() => {
     navTimeline.current = gsap
       .timeline({ paused: true })
       .to(navRef.current, { y: 0 });
-
-    if (nav) {
-      document.querySelector("body").style.overflow = "hidden";
-    } else {
-      document.querySelector("body").style.overflow = "auto";
-    }
   });
   return (
     <StyledNav ref={navWrapperRef}>

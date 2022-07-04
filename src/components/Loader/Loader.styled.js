@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const LoaderContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -8,6 +11,9 @@ export const LoaderContainer = styled.div`
   align-items: center;
   flex-direction: column;
   pointer-events: none;
+  background-color: ${({ theme }) => theme.colors.white};
+  pointer-events: none;
+  z-index: 5;
 `;
 
 export const LoaderTextContainer = styled.div`

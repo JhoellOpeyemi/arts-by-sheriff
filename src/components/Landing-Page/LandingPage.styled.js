@@ -1,9 +1,6 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const LandingPageContainer = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,24 +53,15 @@ export const LandingImage = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
   width: ${({ theme }) => theme.loaderImageWidth};
   height: ${({ theme }) => theme.loaderImageHeight};
-  opacity: 0;
   max-width: 34.375rem;
   overflow: hidden;
+  opacity: 0;
   transform-origin: top;
-  z-index: -1;
-
-  ${({ loadingComplete }) =>
-    loadingComplete &&
-    css`
-      top: auto;
-      left: auto;
-      bottom: 0;
-      transform: translate(0%);
-      max-width: 74.75rem;
-    `};
+  transform-style: preserve-3d;
+  z-index: 1;
 `;
 
 export const Image = styled.img`

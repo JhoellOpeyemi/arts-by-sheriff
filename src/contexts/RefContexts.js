@@ -1,8 +1,11 @@
-import { useRef, createContext } from "react";
+import { useState, useRef, createContext } from "react";
 
 export const RefContext = createContext();
 
 export const RefProvider = ({ children }) => {
+  // states
+  const [canScroll, setCanScroll] = useState(false);
+
   // loader ref variables
   const loaderTextRef = useRef(null);
   const loaderImageGroupRef = useRef(null);
@@ -14,8 +17,14 @@ export const RefProvider = ({ children }) => {
   const navLinksRef = useRef(null);
 
   // landing page ref variables
+  const landingContentRef = useRef(null);
   const descriptionRef = useRef(null);
   const heroImageRef = useRef(null);
+
+  // about section ref variables
+  const aboutSectionRef = useRef(null);
+  const aboutImageRef = useRef(null);
+  const aboutTextRef = useRef(null);
 
   return (
     <RefContext.Provider
@@ -28,6 +37,12 @@ export const RefProvider = ({ children }) => {
         loaderContainerRef,
         descriptionRef,
         heroImageRef,
+        canScroll,
+        setCanScroll,
+        aboutSectionRef,
+        aboutImageRef,
+        aboutTextRef,
+        landingContentRef,
       }}
     >
       {children}
