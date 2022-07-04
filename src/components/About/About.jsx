@@ -48,7 +48,6 @@ const About = () => {
           scale: 5,
           transformOrigin: "50% 50%",
           yPercent: -15,
-          ease: "linear",
           duration: 6,
         })
         .to(
@@ -62,7 +61,7 @@ const About = () => {
         .to(heroImageRef.current, { zIndex: -1 })
         .to(body, { backgroundColor: "#14171a" }, "-=3.5");
     }
-  }, [canScroll, heroImageRef, landingContentRef]);
+  });
 
   useEffect(() => {
     aboutTl.current = gsap
@@ -72,7 +71,6 @@ const About = () => {
           start: "top 48%",
           end: "center 20%",
           scrub: true,
-          markers: true,
           id: "about",
         },
       })
@@ -81,7 +79,7 @@ const About = () => {
         yPercent: -100,
       })
       .to(aboutTextRef.current, { opacity: 1 });
-  }, [aboutImageRef, aboutTextRef, aboutSectionRef, canScroll]);
+  });
 
   return (
     <AboutSection ref={aboutSectionRef}>

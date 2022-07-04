@@ -38,9 +38,9 @@ const LandingPage = ({ loadingComplete }) => {
         yPercent: 0,
         xPercent: 0,
         width: "100%",
-        maxWidth: "1196px",
-        margin: "auto",
         height: "50vh",
+        maxWidth: "1196px",
+        margin: "0 auto",
       })
       .to(".name", {
         y: 0,
