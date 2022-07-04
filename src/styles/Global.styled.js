@@ -15,7 +15,6 @@ const GlobalStyles = createGlobalStyle`
 
     body {
         font-family: Inter Regular;
-        overflow-x: hidden;
         background-color: ${({ theme }) => theme.colors.white};
         font-size: 1rem;
     }
@@ -50,6 +49,7 @@ const GlobalStyles = createGlobalStyle`
     span {
         display: inline-block;
     }
+
 
     .word-container {
         overflow: hidden;

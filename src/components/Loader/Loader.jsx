@@ -48,9 +48,9 @@ const Loader = ({ loadingComplete, setLoadingComplete }) => {
         {
           height: 0,
           scale: 1.15,
-          duration: 1,
+          duration: 0.8,
           stagger: {
-            each: 1.1,
+            each: 0.95,
             from: "end",
           },
         },

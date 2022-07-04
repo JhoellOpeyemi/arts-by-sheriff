@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-export const LandingPageContainer = styled.div`
+export const LandingPageContainer = styled.section`
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +62,6 @@ export const LandingImage = styled.div`
   opacity: 0;
   transform-origin: top;
   transform-style: preserve-3d;
-  z-index: 1;
 `;
 
 export const Image = styled.img`

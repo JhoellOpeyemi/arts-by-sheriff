@@ -29,7 +29,7 @@ const LandingPage = ({ loadingComplete }) => {
       .timeline({ stagger: 1, duration: 0.5, ease: "power1.in" })
       .to(heroImageRef.current, {
         opacity: 1,
-        duration: 0.35,
+        duration: 0.15,
       })
       .to(heroImageRef.current, {
         top: "unset",
@@ -38,7 +38,7 @@ const LandingPage = ({ loadingComplete }) => {
         yPercent: 0,
         xPercent: 0,
         width: "100%",
-        height: "50vh",
+        height: "48vh",
         maxWidth: "1196px",
         margin: "0 auto",
       })
