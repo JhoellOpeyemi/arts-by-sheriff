@@ -31,11 +31,6 @@ const GlobalStyles = createGlobalStyle`
             background: ${({ theme }) => theme.colors.bodyBg};
             border-radius: 20px;
         }
-
-        @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
-            overflow-x: hidden;
-            overflow-y: scroll
-        }
     }
 
     h1,h2,h3,h4,h5 {
@@ -43,7 +38,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     p {
-        line-height: 1.3;
+        line-height: 1.4;
     }
 
     a {

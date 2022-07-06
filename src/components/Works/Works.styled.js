@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const WorksSection = styled.section`
   width: 90%;
   margin: 0 auto;
-  max-width: 1150px;
+  max-width: 1200px;
   padding: 7rem 0 4rem;
   border: 0;
 

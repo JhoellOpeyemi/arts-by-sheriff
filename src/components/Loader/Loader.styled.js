@@ -27,6 +27,10 @@ export const LoaderText = styled.p`
   color: black;
   transform: translateY(200%) rotateX(10deg) rotateZ(30deg);
   opacity: 0;
+
+  @media screen and (min-width: ${({ theme }) => theme.break.desktop}) {
+    font-size: ${({ theme }) => theme.fontSize.loaderTextDesktop};
+  }
 `;
 
 export const ImageGroup = styled.div`
