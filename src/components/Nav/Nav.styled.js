@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const StyledNav = styled.nav`
-  position: fixed;
+  position: absolute;
+  top: 0;
   left: 0;
   width: 100%;
   z-index: 5;
@@ -22,6 +23,11 @@ export const Logo = styled.p`
   font-size: 1.3rem;
   font-family: Inter Regular;
   z-index: 5;
+
+  @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
+    font-size: 1.5rem;
+    font-family: Inter Medium;
+  }
 `;
 
 export const NavLinksWrapper = styled.div`
@@ -41,29 +47,74 @@ export const NavLinksWrapper = styled.div`
     height: 100%;
     background-color: ${({ theme }) => theme.colors.white};
   }
+
+  @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
+    position: relative;
+    height: 100%;
+    transform: translateY(0);
+
+    & > div {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: row;
+      background-color: transparent;
+    }
+  }
 `;
 
 export const NavLink = styled.a`
   font-family: Forum;
-  color: ${({ theme }) => theme.colors.black8};
+  color: ${({ theme }) => theme.colors.black};
   font-size: 2.5rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   opacity: 0;
   transform: translateY(20%);
+  position: relative;
+  overflow: hidden;
 
   &:not(:last-child) {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .link-reveal {
+    position: absolute;
+    top: 110%;
+    display: inline-block;
+    color: red;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
+    opacity: 1;
+    font-size: 1.35rem;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-family: Inter Regular;
+
+    &:not(:last-child) {
+      margin: 0 4rem 0 0;
+    }
   }
 `;
 
 export const Menu = styled.button`
   width: 2.625rem;
-  height: 0.625rem;
+  height: 0.7rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   z-index: 5;
+
+  @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
+    display: none;
+  }
 `;
 
 export const MenuLine = styled.div`

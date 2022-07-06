@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, useRef } from "react";
+import { useEffect, useContext, useRef } from "react";
 
 import { gsap } from "gsap";
 
@@ -14,29 +14,48 @@ import {
 } from "./Nav.styled";
 
 const Nav = () => {
-  const [nav, setNav] = useState(false);
   const { navWrapperRef, navRef, navLinksRef } = useContext(RefContext);
 
-  const navTimeline = useRef();
+  const navTimeline = useRef(null);
 
   const handleNav = () => {
-    setNav(!nav);
+    navTimeline.current.reversed()
+      ? navTimeline.current.play()
+      : navTimeline.current.reverse();
   };
 
   useEffect(() => {
     navTimeline.current = gsap
-      .timeline({ paused: true })
-      .to(navRef.current, { y: 0 });
+      .timeline({ paused: true, reversed: true })
+      .to(navRef.current, { y: 0 })
+      .to(navLinksRef.current.children, {
+        y: 0,
+        opacity: 1,
+        duration: 0.5,
+        stagger: 0.15,
+        ease: "back",
+      });
   });
+
   return (
     <StyledNav ref={navWrapperRef}>
       <div>
         <Logo>ArtsBySheriff</Logo>
 
-        <NavLinksWrapper nav={nav} ref={navRef}>
+        <NavLinksWrapper ref={navRef}>
           <div ref={navLinksRef}>
-            <NavLink href="/">Work</NavLink>
-            <NavLink href="/">Contact</NavLink>
+            <NavLink href="#work" onClick={handleNav}>
+              <div className="link">
+                <span className="link-main">Work</span>
+                <span className="link-reveal">Work</span>
+              </div>
+            </NavLink>
+            <NavLink href="/" onClick={handleNav}>
+              <div className="link">
+                <span className="link-main">Contact</span>
+                <span className="link-reveal">Contact</span>
+              </div>
+            </NavLink>
           </div>
         </NavLinksWrapper>
 

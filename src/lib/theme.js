@@ -7,7 +7,7 @@ const theme = {
     text: "#ddd",
   },
   break: {
-    tablet: "36.25rem", // 550px
+    tablet: "34.375rem", // 550px
     bigTablet: "46.875rem", // 750px
     desktop: "64rem", //1024px
   },
@@ -25,6 +25,8 @@ const theme = {
   },
   loaderImageWidth: "75%",
   loaderImageHeight: "25rem",
+  worksImageWidthDesktop: "30rem",
+  worksImageHeightDesktop: "70vh",
 };
 
 export default theme;

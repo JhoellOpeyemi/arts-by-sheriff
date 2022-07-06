@@ -14,16 +14,63 @@ import { Overlay } from "../../styles/Utilities.styled";
 gsap.registerPlugin(ScrollTrigger);
 
 const Works = () => {
+  const worksSectionRef = useRef(null);
   const imagesContainerRef = useRef(null);
-  const workSectionRef = useRef(null);
+  const workHeadingRef = useRef(null);
 
   const worksTl = useRef(null);
+  const workHorizontalTl = useRef(null);
+
+  const workTextArray = ["W", "o", "r", "k", "s"];
+
+  const verticalScroll = () => {
+    const allWorks = gsap.utils.toArray(imagesContainerRef.current.children);
+    gsap.to(allWorks, {
+      scrollTrigger: {
+        trigger: worksSectionRef.current,
+        start: "15% 5%",
+        pin: true,
+        scrub: 3,
+      },
+      xPercent: -100 * (allWorks.length - 1),
+    });
+
+    allWorks.forEach((work, index) => {
+      workHorizontalTl.current = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: work,
+            start: "top center",
+          },
+        })
+        .to(work.firstElementChild, { width: 0 });
+    });
+  };
 
   const revealImages = (children) => {
     const imagesArray = Array.from(children);
 
+    // work heading animation
+    gsap.fromTo(
+      workHeadingRef.current.children,
+      { yPercent: 0 },
+      {
+        scrollTrigger: {
+          trigger: workHeadingRef.current,
+          start: "top 70%",
+          toggleActions: "restart none none reset",
+        },
+        yPercent: -6,
+        duration: 0.3,
+        stagger: 0.1,
+        yoyo: true,
+        repeat: -1,
+        ease: "back",
+      }
+    );
+
+    // loop through images and set a timeline animation for each image
     imagesArray.forEach((image, index) => {
-      console.log(image.firstElementChild);
       worksTl.current = gsap
         .timeline({
           defaults: {
@@ -31,7 +78,7 @@ const Works = () => {
           },
           scrollTrigger: {
             trigger: image,
-            start: "top 75%",
+            start: "top 55%",
           },
         })
         .to(image.firstElementChild, {
@@ -49,12 +96,20 @@ const Works = () => {
   };
 
   useEffect(() => {
-    revealImages(imagesContainerRef.current.children);
+    if (window.innerWidth < 750) {
+      revealImages(imagesContainerRef.current.children);
+    } else {
+      verticalScroll();
+    }
   });
 
   return (
-    <WorksSection ref={workSectionRef}>
-      <WorksSectionHeading>Works</WorksSectionHeading>
+    <WorksSection id="work" ref={worksSectionRef}>
+      <WorksSectionHeading ref={workHeadingRef}>
+        {workTextArray.map((text, index) => (
+          <span key={index}>{text}</span>
+        ))}
+      </WorksSectionHeading>
       <ImagesContainer ref={imagesContainerRef}>
         <ImageWrapper>
           <Overlay background="#14171a" />

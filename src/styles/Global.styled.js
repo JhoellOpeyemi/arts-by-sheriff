@@ -16,7 +16,26 @@ const GlobalStyles = createGlobalStyle`
     body {
         font-family: Inter Regular;
         background-color: ${({ theme }) => theme.colors.white};
+        color: ${({ theme }) => theme.colors.black};
         font-size: 1rem;
+
+        &::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: ${({ theme }) => theme.colors.white};
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: ${({ theme }) => theme.colors.bodyBg};
+            border-radius: 20px;
+        }
+
+        @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
+            overflow-x: hidden;
+            overflow-y: scroll
+        }
     }
 
     h1,h2,h3,h4,h5 {
@@ -50,14 +69,12 @@ const GlobalStyles = createGlobalStyle`
         display: inline-block;
     }
 
-
-    .word-container {
-        overflow: hidden;
-
-        .name {
-            transform-style: preserve-3d;
-        }
+    *::-webkit-scrollbar {
+        width: 0;
     }
+
+
+    
 `;
 
 export default GlobalStyles;

@@ -26,6 +26,16 @@ export const Name = styled.h1`
   font-size: ${({ theme }) => theme.fontSize.largeTextMobile};
   text-transform: uppercase;
   letter-spacing: 3px;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  .word-container {
+    overflow: hidden;
+  }
 
   .name {
     transform: translateY(100%);
@@ -37,11 +47,35 @@ export const Name = styled.h1`
   }
 `;
 
+export const HoverReveal = styled.div`
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -65%);
+  width: 0;
+  height: 200px;
+  opacity: 1;
+  pointer-events: none;
+  display: none;
+  mix-blend-mode: multiply;
+  /* z-index: 3; */
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
+    display: inline-block;
+  }
+`;
+
 export const Description = styled.p`
   font-family: Inter Regular;
   font-size: ${({ theme }) => theme.fontSize.mediumTextMobile};
   color: ${({ theme }) => theme.colors.black8};
-  margin: 1.5rem;
+  margin: 2rem 1.5rem;
   opacity: 0;
   line-height: 1.3;
 
