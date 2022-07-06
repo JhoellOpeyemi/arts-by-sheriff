@@ -13,7 +13,7 @@ import GlobalStyles from "./styles/Global.styled";
 import { Container } from "./styles/Utilities.styled";
 
 function App() {
-  const [loadingComplete, setLoadingComplete] = useState(true);
+  const [loadingComplete, setLoadingComplete] = useState(false);
 
   return (
     <ThemeProvider theme={theme}>
