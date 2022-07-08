@@ -1,10 +1,11 @@
 const theme = {
   colors: {
-    bodyBg: "#14171a",
+    bodyBg: "#fff",
     white: "#fff",
     black: "#222",
     black8: "#888",
-    text: "#bbb",
+    heading: "#111",
+    text: "#333",
   },
   break: {
     tablet: "34.375rem", // 550px
@@ -18,10 +19,10 @@ const theme = {
     largeTextDesktop: "4rem",
     mediumTextMobile: "1.35rem",
     mediumTextDesktop: "1.8rem",
-    sectionHeadingMobile: "3.625rem",
-    sectionHeadingDesktop: "4.5rem",
+    sectionHeadingMobile: "4rem",
+    sectionHeadingDesktop: "4.9rem",
     loaderTextMobile: "2.25rem",
-    loaderTextDesktop: "3.5rem",
+    loaderTextDesktop: "3rem",
   },
   loaderImageWidth: "75%",
   loaderImageHeight: "26rem",

@@ -26,10 +26,11 @@ const About = () => {
       .timeline({
         scrollTrigger: {
           trigger: aboutSectionRef.current,
-          start: window.innerWidth < 750 ? "top 45%" : "50% top",
+          start: "top 50%",
+          id: "about",
         },
       })
-      .to(aboutDividerRef.current, { width: "100%", duration: 1.1 })
+      .to(aboutDividerRef.current, { width: "100%", duration: 1 })
       .to(
         aboutImageRef.current.firstElementChild,
         { yPercent: -100, duration: 0.8 },
@@ -48,7 +49,7 @@ const About = () => {
 
       <AboutContent>
         <AboutImage ref={aboutImageRef}>
-          <Overlay background="#14171a" />
+          <Overlay background="#fff" />
           <img src="./images/image.jpg" alt="A selfie of sheriff smiling" />
         </AboutImage>
 

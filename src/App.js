@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import { ThemeProvider } from "styled-components";
-import { RefProvider } from "./contexts/RefContexts";
 
 import theme from "./lib/theme";
 
@@ -14,27 +13,23 @@ import { Container } from "./styles/Utilities.styled";
 
 function App() {
   const [loadingComplete, setLoadingComplete] = useState(false);
+  const navWrapperRef = useRef(null);
 
   return (
     <ThemeProvider theme={theme}>
-      <RefProvider>
-        <GlobalStyles />
-        {!loadingComplete ? (
-          <Loader
-            loadingComplete={loadingComplete}
-            setLoadingComplete={setLoadingComplete}
-          />
-        ) : (
-          <>
-            <Nav />
-            <LandingPage loadingComplete={loadingComplete} />
-            <Container>
-              <Works />
-              <About />
-            </Container>
-          </>
-        )}
-      </RefProvider>
+      <GlobalStyles />
+      {!loadingComplete ? (
+        <Loader setLoadingComplete={setLoadingComplete} />
+      ) : (
+        <>
+          <Nav navWrapperRef={navWrapperRef} />
+          <LandingPage navWrapperRef={navWrapperRef} />
+          <Container>
+            <Works />
+            <About />
+          </Container>
+        </>
+      )}
     </ThemeProvider>
   );
 }

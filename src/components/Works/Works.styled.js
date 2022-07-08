@@ -4,7 +4,7 @@ export const WorksSection = styled.section`
   width: 90%;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 7rem 0 4rem;
+  padding: 8rem 0 4rem;
   border: 0;
 
   @media screen and (min-width: ${({ theme }) => theme.break.tablet}) {
@@ -19,6 +19,7 @@ export const WorksSection = styled.section`
 export const WorksSectionHeading = styled.h2`
   font-family: Forum;
   font-size: ${({ theme }) => theme.fontSize.sectionHeadingMobile};
+  color: ${({ theme }) => theme.colors.heading};
   text-transform: uppercase;
   font-weight: 400;
   position: sticky;

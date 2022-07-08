@@ -11,7 +11,7 @@ import {
   LoaderTextContainer,
 } from "./Loader.styled";
 
-const Loader = ({ loadingComplete, setLoadingComplete }) => {
+const Loader = ({ setLoadingComplete }) => {
   // loader ref variables
   const loaderTextRef = useRef(null);
   const loaderImageGroupRef = useRef(null);

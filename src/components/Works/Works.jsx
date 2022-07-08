@@ -16,12 +16,9 @@ gsap.registerPlugin(ScrollTrigger);
 const Works = () => {
   const worksSectionRef = useRef(null);
   const imagesContainerRef = useRef(null);
-  const workHeadingRef = useRef(null);
 
   const worksTl = useRef(null);
   const workHorizontalTl = useRef(null);
-
-  const workTextArray = ["W", "o", "r", "k", "s"];
 
   const verticalScroll = () => {
     const allWorks = gsap.utils.toArray(imagesContainerRef.current.children);
@@ -49,25 +46,6 @@ const Works = () => {
 
   const revealImages = (children) => {
     const imagesArray = Array.from(children);
-
-    // work heading animation
-    gsap.fromTo(
-      workHeadingRef.current.children,
-      { yPercent: 0 },
-      {
-        scrollTrigger: {
-          trigger: workHeadingRef.current,
-          start: "top 70%",
-          toggleActions: "restart none none reset",
-        },
-        yPercent: -6,
-        duration: 0.3,
-        stagger: 0.1,
-        yoyo: true,
-        repeat: -1,
-        ease: "back",
-      }
-    );
 
     // loop through images and set a timeline animation for each image
     imagesArray.forEach((image, index) => {
@@ -105,50 +83,46 @@ const Works = () => {
 
   return (
     <WorksSection id="work" ref={worksSectionRef}>
-      <WorksSectionHeading ref={workHeadingRef}>
-        {workTextArray.map((text, index) => (
-          <span key={index}>{text}</span>
-        ))}
-      </WorksSectionHeading>
+      <WorksSectionHeading>Works</WorksSectionHeading>
       <ImagesContainer ref={imagesContainerRef}>
         <ImageWrapper>
-          <Overlay background="#14171a" />
+          <Overlay background="#fff" />
           <img src="./images/smile1.jpg" alt="painting of woman smiling" />
         </ImageWrapper>
         <ImageWrapper>
-          <Overlay background="#14171a" />
+          <Overlay background="#fff" />
           <img src="./images/jacket1.jpg" alt="" />
         </ImageWrapper>
         <ImageWrapper>
-          <Overlay background="#14171a" />
+          <Overlay background="#fff" />
           <img src="./images/break-trouser-zoom.jpg" alt="" />
         </ImageWrapper>
         <ImageWrapper>
-          <Overlay background="#14171a" />
+          <Overlay background="#fff" />
           <img src="./images/rick-n-morty-trouser.jpg" alt="" />
         </ImageWrapper>
         <ImageWrapper>
-          <Overlay background="#14171a" />
+          <Overlay background="#fff" />
           <img src="./images/sneaker1.jpg" alt="" />
         </ImageWrapper>
         <ImageWrapper>
-          <Overlay background="#14171a" />
+          <Overlay background="#fff" />
           <img src="./images/fire-slide.jpg" alt="" />
         </ImageWrapper>
         <ImageWrapper>
-          <Overlay background="#14171a" />
+          <Overlay background="#fff" />
           <img src="./images/trouser2-zoom.jpg" alt="" />
         </ImageWrapper>
         <ImageWrapper>
-          <Overlay background="#14171a" />
+          <Overlay background="#fff" />
           <img src="./images/smile2.jpg" alt="" />
         </ImageWrapper>
         <ImageWrapper>
-          <Overlay background="#14171a" />
+          <Overlay background="#fff" />
           <img src="./images/smile3.jpg" alt="" />
         </ImageWrapper>
         <ImageWrapper>
-          <Overlay background="#14171a" />
+          <Overlay background="#fff" />
           <img src="./images/rick-n-morty-jacket-zoom.jpg" alt="" />
         </ImageWrapper>
       </ImagesContainer>

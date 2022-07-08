@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const AboutSection = styled.section`
   width: 90%;
-  margin: 0 auto;
+  margin: 3rem auto 0;
   max-width: 1200px;
   padding: 1rem 0 4rem;
 `;
@@ -10,7 +10,7 @@ export const AboutSection = styled.section`
 export const AboutDivider = styled.div`
   width: 0;
   height: 0.07rem;
-  background: ${({ theme }) => theme.colors.white};
+  background: ${({ theme }) => theme.colors.black};
 `;
 
 export const AboutContent = styled.div`

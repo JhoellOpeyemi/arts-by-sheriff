@@ -1,7 +1,7 @@
-import { useLayoutEffect, useRef, useContext } from "react";
-import { gsap } from "gsap";
+import { useLayoutEffect, useRef, useState } from "react";
 
-import { RefContext } from "../../contexts/RefContexts";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // styled components import
 import {
@@ -15,15 +15,15 @@ import {
 } from "./LandingPage.styled";
 import { Overlay } from "../../styles/Utilities.styled";
 
-const LandingPage = ({ loadingComplete }) => {
-  const {
-    descriptionRef,
-    heroImageRef,
-    navWrapperRef,
-    canScroll,
-    setCanScroll,
-    landingContentRef,
-  } = useContext(RefContext);
+gsap.registerPlugin(ScrollTrigger);
+
+const LandingPage = ({ navWrapperRef }) => {
+  const [ready, setReady] = useState(false);
+
+  // landing page ref variables
+  const landingContentRef = useRef(null);
+  const descriptionRef = useRef(null);
+  const heroImageRef = useRef(null);
 
   const nameImage = useRef(null);
 
@@ -42,6 +42,17 @@ const LandingPage = ({ loadingComplete }) => {
     gsap.to(nameImage.current, {
       width: 0,
       duration: 0.3,
+    });
+  };
+
+  const heroImageZoom = () => {
+    gsap.to(heroImageRef.current.lastElementChild, {
+      scrollTrigger: {
+        trigger: heroImageRef.current,
+        start: "top 48%",
+        scrub: 1,
+      },
+      scale: 1.8,
     });
   };
 
@@ -73,10 +84,12 @@ const LandingPage = ({ loadingComplete }) => {
       })
       .to(navWrapperRef.current, {
         opacity: 1,
-        onUpdate: setCanScroll,
+        onUpdate: setReady,
         onUpdateParams: [true],
       });
-  }, [heroImageRef, descriptionRef, navWrapperRef, setCanScroll]);
+
+    if (ready) heroImageZoom();
+  }, [heroImageRef, descriptionRef, navWrapperRef, ready]);
 
   return (
     <>
@@ -102,11 +115,8 @@ const LandingPage = ({ loadingComplete }) => {
             I make handprinted wearable arts
           </Description>
         </LandingContent>
-        <LandingImage ref={heroImageRef} loadingComplete={loadingComplete}>
-          <Overlay
-            backgroundImage="linear-gradient(180deg, rgba(218,218,218,0) 0%, rgba(20,23,26,.98) 95%)"
-            canScroll={canScroll}
-          />
+        <LandingImage ref={heroImageRef}>
+          <Overlay background="none" />
 
           <Image src={"/images/rick-n-morty-jacket-zoom.jpg"} alt="" />
         </LandingImage>

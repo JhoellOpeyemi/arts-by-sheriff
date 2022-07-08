@@ -1,8 +1,6 @@
-import { useEffect, useContext, useRef } from "react";
+import { useEffect, useRef } from "react";
 
 import { gsap } from "gsap";
-
-import { RefContext } from "../../contexts/RefContexts";
 
 import {
   StyledNav,
@@ -13,8 +11,10 @@ import {
   MenuLine,
 } from "./Nav.styled";
 
-const Nav = () => {
-  const { navWrapperRef, navRef, navLinksRef } = useContext(RefContext);
+const Nav = ({ navWrapperRef }) => {
+  const navRef = useRef(null);
+  const navLinksRef = useRef(null);
+  const menuRef = useRef(null);
 
   const navTimeline = useRef(null);
 
@@ -34,6 +34,16 @@ const Nav = () => {
         duration: 0.5,
         stagger: 0.15,
         ease: "back",
+      })
+      .to(menuRef.current.firstElementChild, {
+        rotateZ: 35,
+        y: "130%",
+        x: "-5%",
+      })
+      .to(menuRef.current.lastElementChild, {
+        rotateZ: -35,
+        y: "-200%",
+        x: "15%",
       });
   });
 
@@ -59,7 +69,7 @@ const Nav = () => {
           </div>
         </NavLinksWrapper>
 
-        <Menu onClick={handleNav}>
+        <Menu onClick={handleNav} ref={menuRef}>
           <MenuLine></MenuLine>
           <MenuLine></MenuLine>
         </Menu>
