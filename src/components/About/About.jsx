@@ -28,7 +28,6 @@ const About = () => {
           trigger: aboutSectionRef.current,
           start: window.innerWidth < 750 ? "top 50%" : "top 50%",
           id: "about",
-          markers: true,
         },
       })
       .to(aboutDividerRef.current, { width: "100%", duration: 1 })
