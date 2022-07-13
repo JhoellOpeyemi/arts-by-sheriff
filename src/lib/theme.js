@@ -14,7 +14,7 @@ const theme = {
   },
   fontSize: {
     textMobile: "1.25rem",
-    textDesktop: "1.6rem",
+    textDesktop: "1.5rem",
     largeTextMobile: "3rem",
     largeTextDesktop: "4rem",
     mediumTextMobile: "1.35rem",
@@ -25,9 +25,9 @@ const theme = {
     loaderTextDesktop: "3rem",
   },
   loaderImageWidth: "75%",
-  loaderImageHeight: "26rem",
+  loaderImageHeight: "28rem",
   worksImageWidthDesktop: "32rem",
-  worksImageHeightDesktop: "70vh",
+  worksImageHeightDesktop: "67vh",
 };
 
 export default theme;

@@ -43,19 +43,19 @@ export const AboutImage = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    opacity: 0.8;
+    opacity: 0.9;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
     position: sticky;
-    top: 10%;
-    width: 80%;
-    height: 500px;
+    top: 5%;
+    width: 100%;
+    height: 75vh;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.break.desktop}) {
     width: 100%;
-    height: 75vh;
+    height: 65vh;
   }
 `;
 
@@ -69,7 +69,7 @@ export const AboutText = styled.div`
   }
 
   @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
-    width: 100%;
+    width: 90%;
 
     p {
       font-size: ${({ theme }) => theme.fontSize.textDesktop};

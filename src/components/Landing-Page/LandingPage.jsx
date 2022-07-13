@@ -13,7 +13,6 @@ import {
   LandingImage,
   HoverReveal,
 } from "./LandingPage.styled";
-import { Overlay } from "../../styles/Utilities.styled";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,18 +49,18 @@ const LandingPage = ({ navWrapperRef }) => {
       scrollTrigger: {
         trigger: heroImageRef.current,
         start: "top 48%",
-        scrub: 1,
+        scrub: 0.75,
       },
-      scale: 1.8,
+      scale: 1.35,
     });
   };
 
   useLayoutEffect(() => {
     tl.current = gsap
       .timeline({ stagger: 1, duration: 0.5, ease: "power1.in" })
-      .to(heroImageRef.current, {
-        opacity: 1,
-        duration: 0.15,
+      .to(heroImageRef.current.firstElementChild, {
+        height: "100%",
+        duration: 0.6,
       })
       .to(heroImageRef.current, {
         top: "unset",
@@ -74,6 +73,13 @@ const LandingPage = ({ navWrapperRef }) => {
         maxWidth: "1196px",
         margin: "0 auto",
       })
+      .to(
+        heroImageRef.current.firstElementChild.firstElementChild,
+        {
+          height: "100%",
+        },
+        "<"
+      )
       .to(".name", {
         y: 0,
         opacity: 1,
@@ -116,9 +122,9 @@ const LandingPage = ({ navWrapperRef }) => {
           </Description>
         </LandingContent>
         <LandingImage ref={heroImageRef}>
-          <Overlay background="none" />
-
-          <Image src={"/images/rick-n-morty-jacket-zoom.jpg"} alt="" />
+          <Image>
+            <img src={"/images/rick-n-morty-jacket-zoom.jpg"} alt="" />
+          </Image>
         </LandingImage>
       </LandingPageContainer>
     </>

@@ -54,11 +54,10 @@ export const HoverReveal = styled.div`
   transform: translate(-50%, -65%);
   width: 0;
   height: 200px;
-  opacity: 1;
+  opacity: 0.85;
   pointer-events: none;
   display: none;
   mix-blend-mode: multiply;
-  /* z-index: 3; */
 
   img {
     width: 100%;
@@ -93,17 +92,23 @@ export const LandingImage = styled.div`
   height: ${({ theme }) => theme.loaderImageHeight};
   max-width: 34.375rem;
   overflow: hidden;
-  opacity: 0;
+  opacity: 1;
   transform-origin: top;
   transform-style: preserve-3d;
 `;
 
-export const Image = styled.img`
+export const Image = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
+  height: 0px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: ${({ theme }) => theme.loaderImageHeight};
+    object-fit: cover;
+    object-position: top;
+  }
 `;

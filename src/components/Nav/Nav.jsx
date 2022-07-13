@@ -26,25 +26,35 @@ const Nav = ({ navWrapperRef }) => {
 
   useEffect(() => {
     navTimeline.current = gsap
-      .timeline({ paused: true, reversed: true })
+      .timeline({
+        paused: true,
+        reversed: true,
+      })
       .to(navRef.current, { y: 0 })
       .to(navLinksRef.current.children, {
         y: 0,
         opacity: 1,
         duration: 0.5,
         stagger: 0.15,
-        ease: "back",
       })
-      .to(menuRef.current.firstElementChild, {
-        rotateZ: 35,
-        y: "130%",
-        x: "-5%",
-      })
-      .to(menuRef.current.lastElementChild, {
-        rotateZ: -35,
-        y: "-200%",
-        x: "15%",
-      });
+      .to(
+        menuRef.current.firstElementChild,
+        {
+          rotate: 35,
+          y: 5,
+          duration: 0.5,
+        },
+        0.3
+      )
+      .to(
+        menuRef.current.lastElementChild,
+        {
+          rotate: -35,
+          y: -3,
+          duration: 0.5,
+        },
+        0.3
+      );
   });
 
   return (
@@ -58,6 +68,12 @@ const Nav = ({ navWrapperRef }) => {
               <div className="link">
                 <span className="link-main">Work</span>
                 <span className="link-reveal">Work</span>
+              </div>
+            </NavLink>
+            <NavLink href="#about" onClick={handleNav}>
+              <div className="link">
+                <span className="link-main">About</span>
+                <span className="link-reveal">About</span>
               </div>
             </NavLink>
             <NavLink href="/" onClick={handleNav}>

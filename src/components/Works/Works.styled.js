@@ -8,7 +8,7 @@ export const WorksSection = styled.section`
   border: 0;
 
   @media screen and (min-width: ${({ theme }) => theme.break.tablet}) {
-    padding: 8rem 0 6rem;
+    padding: 8rem 0 4rem;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
@@ -48,7 +48,7 @@ export const ImagesContainer = styled.div`
     flex-direction: row;
     flex-wrap: nowrap;
     width: calc(${({ theme }) => theme.worksImageWidthDesktop} * 10);
-    height: 100vh;
+    height: 80vh;
     margin-top: 0rem;
     gap: 2.5rem;
   }
@@ -63,7 +63,7 @@ export const ImageWrapper = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.19);
+    transform: scale(1.1);
     will-change: transform;
   }
 
@@ -79,7 +79,7 @@ export const ImageWrapper = styled.div`
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
       width: ${({ theme }) => theme.worksImageWidthDesktop};
       height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: center;
+      align-self: flex-end;
     }
   }
 
@@ -97,7 +97,7 @@ export const ImageWrapper = styled.div`
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
       width: ${({ theme }) => theme.worksImageWidthDesktop};
       height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: center;
+      align-self: flex-end;
     }
   }
 
@@ -114,7 +114,7 @@ export const ImageWrapper = styled.div`
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
       width: ${({ theme }) => theme.worksImageWidthDesktop};
       height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: center;
+      align-self: flex-end;
     }
   }
 
@@ -134,7 +134,7 @@ export const ImageWrapper = styled.div`
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
       width: ${({ theme }) => theme.worksImageWidthDesktop};
       height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: center;
+      align-self: flex-end;
     }
   }
 
@@ -152,7 +152,7 @@ export const ImageWrapper = styled.div`
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
       width: ${({ theme }) => theme.worksImageWidthDesktop};
       height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: center;
+      align-self: flex-end;
     }
   }
 
@@ -169,7 +169,7 @@ export const ImageWrapper = styled.div`
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
       width: ${({ theme }) => theme.worksImageWidthDesktop};
       height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: center;
+      align-self: flex-end;
     }
   }
 
@@ -187,7 +187,7 @@ export const ImageWrapper = styled.div`
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
       width: ${({ theme }) => theme.worksImageWidthDesktop};
       height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: center;
+      align-self: flex-end;
     }
   }
 
@@ -205,7 +205,7 @@ export const ImageWrapper = styled.div`
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
       width: ${({ theme }) => theme.worksImageWidthDesktop};
       height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: center;
+      align-self: flex-end;
     }
   }
 
@@ -225,7 +225,7 @@ export const ImageWrapper = styled.div`
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
       width: ${({ theme }) => theme.worksImageWidthDesktop};
       height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: center;
+      align-self: flex-end;
     }
   }
 
@@ -243,7 +243,7 @@ export const ImageWrapper = styled.div`
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
       width: ${({ theme }) => theme.worksImageWidthDesktop};
       height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: center;
+      align-self: flex-end;
     }
   }
 `;

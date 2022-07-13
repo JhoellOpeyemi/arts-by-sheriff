@@ -26,14 +26,15 @@ const About = () => {
       .timeline({
         scrollTrigger: {
           trigger: aboutSectionRef.current,
-          start: "top 50%",
+          start: window.innerWidth < 750 ? "top 50%" : "top 50%",
           id: "about",
+          markers: true,
         },
       })
       .to(aboutDividerRef.current, { width: "100%", duration: 1 })
       .to(
         aboutImageRef.current.firstElementChild,
-        { yPercent: -100, duration: 0.8 },
+        { xPercent: 100, duration: 0.7 },
         "+=0.2"
       )
       .to(aboutTextRef.current, { opacity: 1, duration: 0.4 }, "+=0.2");
@@ -44,7 +45,7 @@ const About = () => {
   });
 
   return (
-    <AboutSection ref={aboutSectionRef}>
+    <AboutSection ref={aboutSectionRef} id="about">
       <AboutDivider ref={aboutDividerRef} />
 
       <AboutContent>

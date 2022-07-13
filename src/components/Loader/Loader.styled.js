@@ -44,21 +44,20 @@ export const ImageGroup = styled.div`
   opacity: 1;
   overflow: hidden;
   transform-origin: top;
-
-  & > div {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-  }
 `;
 
-export const Image = styled.img`
+export const Image = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 0px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: ${({ theme }) => theme.loaderImageHeight};
+    object-fit: cover;
+    transform: scale(1.1);
+  }
 `;

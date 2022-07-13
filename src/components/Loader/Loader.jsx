@@ -20,8 +20,6 @@ const Loader = ({ setLoadingComplete }) => {
   const tl = useRef();
 
   useLayoutEffect(() => {
-    const imagesContainer = loaderImageGroupRef.current.firstElementChild;
-
     tl.current = gsap
       .timeline({ delay: 0.5, stagger: 1, duration: 0.5, ease: "power1.in" })
       .to(loaderTextRef.current, {
@@ -33,35 +31,23 @@ const Loader = ({ setLoadingComplete }) => {
       .to(
         loaderTextRef.current,
         { yPercent: -150, rotateX: "10", rotateZ: "20", duration: 0.5 },
-        "+=1"
+        "+=0.85"
       )
+      .to(loaderImageGroupRef.current.children, {
+        height: "100%",
+        duration: 0.8,
+        stagger: { each: 0.7, from: "start" },
+      })
       .to(
-        imagesContainer,
+        loaderContainerRef.current,
         {
-          height: 400,
-          duration: 1,
+          opacity: 0,
+          duration: 0,
+          onUpdate: setLoadingComplete,
+          onUpdateParams: [true],
         },
         "+=0.2"
-      )
-      .to(
-        imagesContainer.children,
-        {
-          height: 0,
-          scale: 1.15,
-          duration: 0.8,
-          stagger: {
-            each: 0.95,
-            from: "end",
-          },
-        },
-        "+=0.2"
-      )
-      .to(loaderContainerRef.current, {
-        opacity: 0,
-        duration: 0,
-        onUpdate: setLoadingComplete,
-        onUpdateParams: [true],
-      });
+      );
   }, [setLoadingComplete]);
 
   return (
@@ -71,11 +57,15 @@ const Loader = ({ setLoadingComplete }) => {
       </LoaderTextContainer>
 
       <ImageGroup ref={loaderImageGroupRef}>
-        <div>
-          <Image src={"/images/smile1.jpg"} alt="" />
-          <Image src={"/images/jacket1-zoom.jpg"} alt="" />
-          <Image src={"/images/trouser2-zoom.jpg"} alt="" />
-        </div>
+        <Image>
+          <img src={"/images/smile1.jpg"} alt="" />
+        </Image>
+        <Image>
+          <img src={"/images/jacket1-zoom.jpg"} alt="" />
+        </Image>
+        <Image>
+          <img src={"/images/trouser2-zoom.jpg"} alt="" />
+        </Image>
       </ImageGroup>
     </LoaderContainer>
   );
