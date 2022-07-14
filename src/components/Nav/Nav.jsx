@@ -76,7 +76,7 @@ const Nav = ({ navWrapperRef }) => {
                 <span className="link-reveal">About</span>
               </div>
             </NavLink>
-            <NavLink href="/" onClick={handleNav}>
+            <NavLink href="#contact" onClick={handleNav}>
               <div className="link">
                 <span className="link-main">Contact</span>
                 <span className="link-reveal">Contact</span>

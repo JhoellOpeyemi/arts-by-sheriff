@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 import theme from "./lib/theme";
 
 // components import
-import { LandingPage, Nav, Loader, Works, About } from "./components";
+import { LandingPage, Nav, Loader, Works, About, Contacts } from "./components";
 
 // styled components import
 import GlobalStyles from "./styles/Global.styled";
@@ -27,6 +27,7 @@ function App() {
           <Container>
             <Works />
             <About />
+            <Contacts />
           </Container>
         </>
       )}
