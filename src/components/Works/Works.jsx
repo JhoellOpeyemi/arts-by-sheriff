@@ -27,9 +27,10 @@ const Works = () => {
         trigger: worksSectionRef.current,
         start: "15% 5%",
         pin: true,
-        scrub: 3,
+        scrub: 2.5,
       },
-      xPercent: -100 * (allWorks.length - 1),
+      xPercent: -100 * allWorks.length,
+      duration: 1.55,
     });
 
     allWorks.forEach((work, index) => {

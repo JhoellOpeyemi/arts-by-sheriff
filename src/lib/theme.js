@@ -19,8 +19,6 @@ const theme = {
     largeTextDesktop: "4rem",
     mediumTextMobile: "1.35rem",
     mediumTextDesktop: "1.8rem",
-    sectionHeadingMobile: "4rem",
-    sectionHeadingDesktop: "4.9rem",
     loaderTextMobile: "2.25rem",
     loaderTextDesktop: "3rem",
   },

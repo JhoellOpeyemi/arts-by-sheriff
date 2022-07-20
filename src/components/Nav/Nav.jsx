@@ -18,6 +18,30 @@ const Nav = ({ navWrapperRef }) => {
 
   const navTimeline = useRef(null);
 
+  const showLink = () => {
+    const links = document.querySelectorAll(".link");
+
+    links.forEach((item) => {
+      const linkTl = gsap
+        .timeline({ paused: true })
+        .to(item.querySelector(".link-main"), {
+          yPercent: -100,
+          duration: 0.25,
+        })
+        .to(
+          item.querySelector(".link-reveal"),
+          {
+            yPercent: -110,
+            duration: 0.25,
+          },
+          "<"
+        );
+
+      item.addEventListener("mouseenter", () => linkTl.play());
+      item.addEventListener("mouseleave", () => linkTl.reverse());
+    });
+  };
+
   const handleNav = () => {
     navTimeline.current.reversed()
       ? navTimeline.current.play()
@@ -55,6 +79,7 @@ const Nav = ({ navWrapperRef }) => {
         },
         0.3
       );
+    showLink();
   });
 
   return (

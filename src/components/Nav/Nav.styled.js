@@ -56,6 +56,7 @@ export const NavLinksWrapper = styled.div`
     & > div {
       display: flex;
       justify-content: flex-end;
+      align-items: center;
       flex-direction: row;
       background-color: transparent;
     }
@@ -82,13 +83,14 @@ export const NavLink = styled.a`
     align-items: center;
     width: 100%;
     height: 100%;
+    transform: translateY(0);
   }
 
   .link-reveal {
     position: absolute;
-    top: 110%;
+    transform: translateY(100%);
     display: inline-block;
-    color: red;
+    color: blue;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {

@@ -63,11 +63,7 @@ const LandingPage = ({ navWrapperRef }) => {
         duration: 0.6,
       })
       .to(heroImageRef.current, {
-        top: "unset",
-        left: "50%",
-        bottom: 0,
-        yPercent: 0,
-        xPercent: -50,
+        top: "75%",
         width: "100%",
         height: "50vh",
         maxWidth: "1196px",

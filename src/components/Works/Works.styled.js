@@ -7,33 +7,28 @@ export const WorksSection = styled.section`
   padding: 8rem 0 4rem;
   border: 0;
 
-  @media screen and (min-width: ${({ theme }) => theme.break.tablet}) {
-    padding: 8rem 0 4rem;
-  }
-
   @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
+    padding: 10rem 0 4rem;
     overflow: hidden;
   }
 `;
 
 export const WorksSectionHeading = styled.h2`
   font-family: Forum;
-  font-size: ${({ theme }) => theme.fontSize.sectionHeadingMobile};
+  font-size: clamp(3.8rem, 6vw + 1rem, 5.7rem);
   color: ${({ theme }) => theme.colors.heading};
   text-transform: uppercase;
   font-weight: 400;
   position: sticky;
-  top: 40%;
+  top: 25%;
   text-align: center;
   letter-spacing: 3px;
 
   @media screen and (min-width: ${({ theme }) => theme.break.tablet}) {
     text-align: left;
-    font-size: 4rem;
   }
 
   @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
-    font-size: ${({ theme }) => theme.fontSize.sectionHeadingDesktop};
     top: 0;
   }
 `;
@@ -47,10 +42,10 @@ export const ImagesContainer = styled.div`
   @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
     flex-direction: row;
     flex-wrap: nowrap;
-    width: calc(${({ theme }) => theme.worksImageWidthDesktop} * 10);
-    height: 80vh;
-    margin-top: 0rem;
-    gap: 2.5rem;
+    width: calc(${({ theme }) => theme.worksImageWidthDesktop} * 20);
+    height: 75vh;
+    margin-top: 2rem;
+    gap: 3.5rem;
   }
 `;
 
@@ -64,6 +59,7 @@ export const ImageWrapper = styled.div`
     height: 100%;
     object-fit: cover;
     transform: scale(1.1);
+    pointer-events: all;
     will-change: transform;
   }
 
@@ -77,9 +73,10 @@ export const ImageWrapper = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
-      width: ${({ theme }) => theme.worksImageWidthDesktop};
+      width: 500px;
       height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: flex-end;
+      border-radius: 0.4rem;
+      align-self: center;
     }
   }
 
@@ -95,9 +92,10 @@ export const ImageWrapper = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
-      width: ${({ theme }) => theme.worksImageWidthDesktop};
-      height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: flex-end;
+      width: 500px;
+      height: 65vh;
+      border-radius: 50%;
+      align-self: center;
     }
   }
 
@@ -112,9 +110,11 @@ export const ImageWrapper = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
-      width: ${({ theme }) => theme.worksImageWidthDesktop};
-      height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: flex-end;
+      width: 500px;
+      height: 60vh;
+      border-radius: 0.4rem;
+      transform: translateX(5rem);
+      align-self: center;
     }
   }
 
@@ -132,9 +132,11 @@ export const ImageWrapper = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
-      width: ${({ theme }) => theme.worksImageWidthDesktop};
-      height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: flex-end;
+      width: 540px;
+      height: 58vh;
+      transform: translateX(16rem);
+      border-radius: 0.4rem;
+      align-self: center;
     }
   }
 
@@ -150,9 +152,11 @@ export const ImageWrapper = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
-      width: ${({ theme }) => theme.worksImageWidthDesktop};
-      height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: flex-end;
+      width: 550px;
+      height: 63vh;
+      transform: translateX(23rem);
+      border-radius: 1rem;
+      align-self: center;
     }
   }
 
@@ -167,9 +171,11 @@ export const ImageWrapper = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
-      width: ${({ theme }) => theme.worksImageWidthDesktop};
-      height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: flex-end;
+      width: 520px;
+      height: 68vh;
+      transform: translateX(20rem);
+      clip-path: ellipse(64vh 64vh at 10% 20%);
+      align-self: center;
     }
   }
 
@@ -185,9 +191,11 @@ export const ImageWrapper = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
-      width: ${({ theme }) => theme.worksImageWidthDesktop};
-      height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: flex-end;
+      width: 520px;
+      height: 70vh;
+      clip-path: ellipse(63vh 63vh at 80% 90%);
+      transform: translateX(25rem);
+      align-self: center;
     }
   }
 
@@ -203,9 +211,12 @@ export const ImageWrapper = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
-      width: ${({ theme }) => theme.worksImageWidthDesktop};
-      height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: flex-end;
+      width: 525px;
+      height: 75vh;
+      clip-path: ellipse(65vh 65vh at 50% 90%);
+      transform: translateX(33rem);
+      overflow: hidden;
+      align-self: flex-start;
     }
   }
 
@@ -223,9 +234,11 @@ export const ImageWrapper = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
-      width: ${({ theme }) => theme.worksImageWidthDesktop};
-      height: ${({ theme }) => theme.worksImageHeightDesktop};
-      align-self: flex-end;
+      width: 525px;
+      height: 75vh;
+      clip-path: ellipse(65vh 65vh at 50% 90%);
+      transform: translateX(36rem);
+      align-self: flex-start;
     }
   }
 
@@ -241,8 +254,10 @@ export const ImageWrapper = styled.div`
     }
 
     @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
-      width: ${({ theme }) => theme.worksImageWidthDesktop};
+      width: 520px;
       height: ${({ theme }) => theme.worksImageHeightDesktop};
+      transform: translateX(37rem);
+      border-radius: 1rem;
       align-self: flex-end;
     }
   }

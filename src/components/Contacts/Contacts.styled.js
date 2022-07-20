@@ -18,19 +18,11 @@ export const ContactsContainer = styled.section`
 
 export const ContactsSectionHeading = styled.h2`
   text-transform: uppercase;
-  font-size: 13.5vw;
+  font-size: clamp(3.1rem, 8vw + 1rem, 8rem);
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   font-family: Forum;
   transform: translateX(30%);
-
-  @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
-    font-size: 10vw;
-  }
-
-  @media screen and (min-width: ${({ theme }) => theme.break.desktop}) {
-    font-size: 7.8rem;
-  }
 `;
 
 export const SocialsGroup = styled.div`
@@ -49,7 +41,7 @@ export const Socials = styled.div`
   border-top: 1px solid ${({ theme }) => theme.colors.black8};
 
   a {
-    font-size: 6.5vw;
+    font-size: clamp(2rem, 2.5vw + 1rem, 3rem);
     font-weight: 500;
     display: block;
     opacity: 0;
@@ -60,25 +52,11 @@ export const Socials = styled.div`
     display: block;
   }
 
-  @media screen and (min-width: ${({ theme }) => theme.break.tablet}) {
-    a {
-      font-size: 4.65vw;
-    }
-  }
-
   @media screen and (min-width: ${({ theme }) => theme.break.bigTablet}) {
     padding: 4rem 0;
-
-    a {
-      font-size: 4vw;
-    }
   }
 
   @media screen and (min-width: ${({ theme }) => theme.break.desktop}) {
     padding: 5rem 0;
-
-    a {
-      font-size: 2.8rem;
-    }
   }
 `;

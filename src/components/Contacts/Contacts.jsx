@@ -52,7 +52,7 @@ const Contacts = () => {
         scrub: 1.5,
         toggleActions: "restart complete reverse reset",
       },
-      xPercent: window.innerWidth < 750 ? -200 : -130,
+      xPercent: window.innerWidth < 750 ? -220 : -150,
     });
   });
 

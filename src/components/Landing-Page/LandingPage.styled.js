@@ -74,7 +74,7 @@ export const Description = styled.p`
   font-family: Inter Regular;
   font-size: ${({ theme }) => theme.fontSize.mediumTextMobile};
   color: ${({ theme }) => theme.colors.black8};
-  margin: 2rem 1.5rem;
+  margin: 2rem 1.5rem 3.5rem;
   opacity: 0;
   line-height: 1.3;
 
